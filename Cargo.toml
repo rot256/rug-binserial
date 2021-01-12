@@ -7,6 +7,7 @@ name = "rug-binserial"
 readme = "README.md"
 repository = "https://github.com/rot256/rug-binserial"
 version = "0.1.0"
+exclude = [".github"]
 
 [dependencies]
 rug = "^1.11"
