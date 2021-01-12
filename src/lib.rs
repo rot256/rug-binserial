@@ -1,5 +1,3 @@
-use rug;
-
 use std::fmt;
 
 use serde::de::{Deserializer, SeqAccess, Visitor};
@@ -83,9 +81,6 @@ impl Serialize for Integer {
 
 #[cfg(test)]
 mod tests {
-    use bincode;
-    use serde_json;
-
     use rug::rand::RandState;
 
     use super::*;
