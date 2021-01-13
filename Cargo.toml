@@ -3,7 +3,6 @@ authors = ["Mathias Hall-Andersen <mathias@hall-andersen.dk>"]
 description = "A very simple crate to serialize rug integers as strings of bytes (for use in efficient binary serialization)"
 edition = "2018"
 exclude = [".github"]
-exclude = [".github"]
 license = "MIT"
 name = "rug-binserial"
 readme = "README.md"
