@@ -47,9 +47,9 @@ impl From<rug::Integer> for Integer {
     }
 }
 
-impl Into<rug::Integer> for Integer {
-    fn into(self: Integer) -> rug::Integer {
-        self.0
+impl From<Integer> for rug::Integer {
+    fn from(i: Integer) -> rug::Integer {
+        i.0
     }
 }
 
