@@ -5,7 +5,7 @@ use serde::ser::SerializeSeq;
 use serde::{Deserialize, Serialize, Serializer};
 
 /// Wrapper type for rug integer
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Integer(rug::Integer);
 
 struct IVisitor();

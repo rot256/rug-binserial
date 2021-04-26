@@ -7,7 +7,7 @@ license = "MIT"
 name = "rug-binserial"
 readme = "README.md"
 repository = "https://github.com/rot256/rug-binserial"
-version = "0.1.2"
+version = "0.1.3"
 
 [dependencies]
 rug = "1.0"
