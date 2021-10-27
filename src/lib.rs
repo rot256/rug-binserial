@@ -4,6 +4,8 @@ use serde::de::{Deserializer, SeqAccess, Visitor};
 use serde::ser::SerializeSeq;
 use serde::{Deserialize, Serialize, Serializer};
 
+const ORDERING: rug::integer::Order = rug::integer::Order::LsfLe;
+
 /// Wrapper type for rug integer
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Integer(rug::Integer);
@@ -25,10 +27,7 @@ impl<'de> Visitor<'de> for IVisitor {
         while let Some(digit) = seq.next_element()? {
             digits.push(digit);
         }
-        Ok(Integer(rug::Integer::from_digits(
-            &digits[..],
-            rug::integer::Order::Lsf,
-        )))
+        Ok(Integer(rug::Integer::from_digits(&digits[..], ORDERING)))
     }
 }
 
@@ -70,7 +69,7 @@ impl Serialize for Integer {
     where
         S: Serializer,
     {
-        let digits: Vec<u8> = self.0.to_digits(rug::integer::Order::Lsf);
+        let digits: Vec<u8> = self.0.to_digits(ORDERING);
         let mut seq = serializer.serialize_seq(Some(digits.len()))?;
         for e in digits.iter() {
             seq.serialize_element(e)?;
